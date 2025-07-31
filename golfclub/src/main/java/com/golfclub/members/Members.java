@@ -2,6 +2,8 @@ package com.golfclub.members;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.golfclub.tournaments.Tournaments;
 import jakarta.persistence.*;
 
@@ -20,6 +22,7 @@ public class Members {
     private int membershipDuration;
 
     @ManyToMany (mappedBy = "members")
+    @JsonIgnore
     private Set<Tournaments> tournaments;
 
     // Getters, setters & default constructor 
