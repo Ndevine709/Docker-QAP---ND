@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,5 +60,11 @@ public class TournamentsController {
     @GetMapping("/tournaments/{tournamentId}/members")
     public List<Members> getAllMembersInTournament(@PathVariable Long tournamentId) {
         return tournamentsService.getAllMembersInTournament(tournamentId);
+    }
+
+    // Delete tournament by ID
+    @DeleteMapping("/tournaments/{id}")
+    public void deleteTournament(@PathVariable Long id) {
+        tournamentsService.deleteTournament(id);
     }
 }

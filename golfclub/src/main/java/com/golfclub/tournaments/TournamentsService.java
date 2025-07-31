@@ -70,4 +70,19 @@ public class TournamentsService {
             return new ArrayList<>();
         }
     }
+
+    public void deleteTournament(Long tournamentId) {
+        Optional<Tournaments> optionalTournament = tournamentsRepository.findById(tournamentId);
+
+        if (optionalTournament.isPresent()) {
+            Tournaments tournaments = optionalTournament.get();
+
+            for (Members member : tournaments.getMembers()) {
+                member.getTournaments().remove(tournaments);
+                membersRepository.save(member);
+            }
+
+            tournamentsRepository.deleteById(tournamentId);
+        }
+    }
 }
