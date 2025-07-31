@@ -25,6 +25,14 @@ public class Members {
     // Getters, setters & default constructor 
     public Members() {}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -71,6 +79,14 @@ public class Members {
 
     public void setMembershipDuration(int membershipDuration) {
         this.membershipDuration = membershipDuration;
+    }
+
+    public Set<Tournaments> getTournaments() {
+        return tournaments;
+    }
+
+    public void setTournaments(Set<Tournaments> tournaments) {
+        this.tournaments = tournaments;
     }
 
 }
